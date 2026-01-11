@@ -28,7 +28,17 @@ Plinth currently supports GHC `v9.6.x`. Cabal `v3.8+` is recommended.
   1. Follow [these instructions](https://github.com/input-output-hk/iogx/blob/main/doc/nix-setup-guide.md) to install and configure nix, <b>even if you already have it installed</b>.
      
   2. Then enter the shell using `nix develop`.
-
+  3. `cabal build`
+  4. after build success: `cabal run gen-even-redeemer -- even-redeemer.plutus`
+     - Actually its generated here `dist-newstyle/build/x86_64-linux/ghc-9.6.6/plinth-template-0.1.0.0/x/gen-even-redeemer/build/gen-even-redeemer/gen-even-redeemer` 
+  5. `ls even-redeemer.plutus`
+  6. `head even-redeemer.plutus`
+     -  `{
+          "type": "PlutusScriptV2",
+          "description": "Even redeemer validator",
+          "cborHex": "582301010025333573466e1d20003370a6eb4005200414984c98cd5ce24903505435008001"
+        }
+        `
   > NOTE:  
   > The nix files inside this template follow the [`iogx` template](https://github.com/input-output-hk/iogx), but you can delete and replace them with your own. In that case, you might want to include the [`devx` flake](https://github.com/input-output-hk/devx/issues) in your flake inputs as a starting point to supply all the necessary dependencies, making sure to use one of the `-iog` flavors.
 
